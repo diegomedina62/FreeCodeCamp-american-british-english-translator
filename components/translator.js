@@ -17,6 +17,7 @@ Object.entries(americanToBritishTitles).forEach((x) => {
 class Translator {
   AmToBri(text) {
     let translation = text;
+    let noHighlight = "";
 
     Object.keys(americanOnly).forEach((x) => {
       if (translation.indexOf(x) >= 0) {
@@ -24,6 +25,10 @@ class Translator {
           x,
           `<span class="highlight">${americanOnly[x]}</span>`
         );
+        // noHighlight=noHighlight.replace(
+        //   x,
+        //   americanOnly[x]
+        // );
       }
     });
     spellingsAtoB.forEach((value, key) => {
@@ -57,10 +62,14 @@ class Translator {
       });
     }
 
-    return translation;
+    noHighlight = translation.replaceAll('<span class="highlight">', "");
+    noHighlight = noHighlight.replaceAll("</span>", "");
+
+    return [translation, noHighlight];
   }
   BriToAm(text) {
     let translation = text;
+    let noHighlight = "";
 
     Object.keys(britishOnly).forEach((x) => {
       if (translation.indexOf(x) >= 0) {
@@ -100,7 +109,10 @@ class Translator {
         );
       });
     }
-    return translation;
+    noHighlight = translation.replaceAll('<span class="highlight">', "");
+    noHighlight = noHighlight.replaceAll("</span>", "");
+
+    return [translation, noHighlight];
   }
 }
 
