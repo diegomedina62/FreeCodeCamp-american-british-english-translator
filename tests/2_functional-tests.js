@@ -80,7 +80,7 @@ suite("Functional Tests", () => {
         done();
       });
   });
-  test("empty text", (done) => {
+  test("No translation needed", (done) => {
     chai
       .request(server)
       .post("/api/translate")
@@ -89,7 +89,6 @@ suite("Functional Tests", () => {
         locale: "american-to-british",
       })
       .end((err, res) => {
-        console.log(res.body);
         assert.equal(res.status, 200);
         assert.equal(res.body.translation, "Everything looks good to me!");
         done();

@@ -29,7 +29,7 @@ suite("Unit Tests", () => {
     test("Can you toss this in the trashcan for me?", (done) => {
       assert.equal(
         translator.AmToBri("Can you toss this in the trashcan for me?")[1],
-        "Can you toss this in the rubbishcan for me?"
+        "Can you toss this in the bin for me?"
       );
       done();
     });
@@ -43,7 +43,7 @@ suite("Unit Tests", () => {
     test("Like a high tech Rube Goldberg machine.", (done) => {
       assert.equal(
         translator.AmToBri("Like a high tech Rube Goldberg machine.")[1],
-        "Like a high tech Rube Goldberg machine."
+        "Like a high tech Heath Robinson device."
       );
       done();
     });
@@ -88,7 +88,7 @@ suite("Unit Tests", () => {
     test("Paracetamol takes up to an hour to work.", (done) => {
       assert.equal(
         translator.BriToAm("paracetamol takes up to an hour to work.")[1],
-        "Tylenol thank youkes up to an hour to work."
+        "Tylenol takes up to an hour to work."
       );
       done();
     });
@@ -102,7 +102,7 @@ suite("Unit Tests", () => {
     test("I spent the bank holiday at the funfair.", (done) => {
       assert.equal(
         translator.BriToAm("I spent the bank holiday at the funfair.")[1],
-        "I spent the barlic holiday at the carnival."
+        "I spent the public holiday at the carnival."
       );
       done();
     });
@@ -176,7 +176,7 @@ suite("Unit Tests", () => {
     test("Paracetamol takes up to an hour to work.", (done) => {
       assert.equal(
         translator.BriToAm("Paracetamol takes up to an hour to work.")[0],
-        'Parace<span class="highlight">thank you</span>mol takes up to an hour to work.'
+        '<span class="highlight">Tylenol</span> takes up to an hour to work.'
       );
       done();
     });

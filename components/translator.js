@@ -20,24 +20,18 @@ class Translator {
     let noHighlight = "";
 
     Object.keys(americanOnly).forEach((x) => {
-      if (translation.indexOf(x) >= 0) {
-        translation = translation.replace(
-          x,
-          `<span class="highlight">${americanOnly[x]}</span>`
-        );
-        // noHighlight=noHighlight.replace(
-        //   x,
-        //   americanOnly[x]
-        // );
-      }
+      let word = new RegExp(`\\b${x}\\b`, "gi");
+      translation = translation.replace(
+        word,
+        `<span class="highlight">${americanOnly[x]}</span>`
+      );
     });
     spellingsAtoB.forEach((value, key) => {
-      if (translation.indexOf(key) >= 0) {
-        translation = translation.replace(
-          key,
-          `<span class="highlight">${value}</span>`
-        );
-      }
+      let word = new RegExp(`\\b${key}\\b`, "gi");
+      translation = translation.replace(
+        word,
+        `<span class="highlight">${value}</span>`
+      );
     });
     titlesAtoB.forEach((value, key) => {
       if (translation.indexOf(key) >= 0) {
@@ -72,20 +66,31 @@ class Translator {
     let noHighlight = "";
 
     Object.keys(britishOnly).forEach((x) => {
-      if (translation.indexOf(x) >= 0) {
-        translation = translation.replace(
-          x,
-          `<span class="highlight">${britishOnly[x]}</span>`
-        );
-      }
+      let word = new RegExp(`\\b${x}\\b`, "gi");
+      translation = translation.replace(
+        word,
+        `<span class="highlight">${britishOnly[x]}</span>`
+      );
+
+      // if (translation.indexOf(x) >= 0) {
+      //   translation = translation.replace(
+      //     x,
+      //     `<span class="highlight">${britishOnly[x]}</span>`
+      //   );
+      // }
     });
     spellingBtoA.forEach((value, key) => {
-      if (translation.indexOf(key) >= 0) {
-        translation = translation.replace(
-          key,
-          `<span class="highlight">${value}</span>`
-        );
-      }
+      let word = new RegExp(`\\b${key}\\b`, "gi");
+      translation = translation.replace(
+        word,
+        `<span class="highlight">${value}</span>`
+      );
+      // if (translation.indexOf(key) >= 0) {
+      //   translation = translation.replace(
+      //     key,
+      //     `<span class="highlight">${value}</span>`
+      //   );
+      // }
     });
     titlesBtoA.forEach((value, key) => {
       if (translation.indexOf(key) >= 0) {
